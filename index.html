@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог настільних ігор</title>
+    
+    <!-- Підключення скрипта з атрибутом defer -->
+    <script src="js/script.js" defer></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка з навігацією -->
+    <header>
+        <h1>Каталог настільних ігор</h1>
+        <nav>
+            <a href="#add-game-section">Додати гру</a>
+            <a href="#games">Список ігор</a>
+        </nav>
+    </header>
+
+    <!-- Основний вміст -->
+    <main>
+        <!-- Секція форми додавання нової гри (Практична робота №8) -->
+        <section id="add-game-section" style="margin-bottom: 30px;">
+            <h2>Додати нову гру до каталогу</h2>
+            <form id="add-game-form" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <div style="margin-bottom: 15px;">
+                    <label for="new-title" style="display: block; margin-bottom: 5px; font-weight: 600;">Назва гри:</label>
+                    <input type="text" id="new-title" name="title" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label for="min-players" style="display: block; margin-bottom: 5px; font-weight: 600;">Мін. гравців:</label>
+                    <input type="number" id="min-players" name="minPlayers" min="1" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label for="max-players" style="display: block; margin-bottom: 5px; font-weight: 600;">Макс. гравців:</label>
+                    <input type="number" id="max-players" name="maxPlayers" min="1" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <!-- Елемент для виведення власної помилки валідації -->
+                <div id="form-error-msg" style="color: #e63946; font-size: 14px; margin-bottom: 15px; font-weight: bold;"></div>
+
+                <button type="submit" class="btn-filter" style="background: #7b2cbf; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Додати гру</button>
+            </form>
+        </section>
+
+        <!-- Інтерактивний фільтр (Друга подія за варіантом 4: change на select) -->
+        <section id="dynamic-filter" style="margin-bottom: 20px;">
+            <label for="player-filter" style="font-weight: 600;">Фільтрувати за кількістю гравців:</label>
+            <select id="player-filter" style="padding: 6px; border-radius: 4px; border: 1px solid #ccc;">
+                <option value="all">Усі ігри</option>
+                <option value="1">1 гравець</option>
+                <option value="2">2 гравці</option>
+                <option value="3">3 гравці</option>
+                <option value="4">4 гравці</option>
+                <option value="5">5 гравців</option>
+                <option value="6">6+ гравців</option>
+            </select>
+        </section>
+
+        <!-- Список карток ігор -->
+        <section id="games">
+            <h2>Ігри</h2>
+            
+            <p style="font-weight: 600; color: #7b2cbf;">Усього ігор у каталозі: <span id="games-count">0</span></p>
+            
+            <div class="cards" id="games-list"> 
+                <!-- Статична заглушка, яка видаляється скриптом -->
+                <article class="static-placeholder">
+                    <h3>Статична заглушка</h3>
+                    <span class="badge">👥 0 гравців</span>
+                    <p>Ця картка має зникнути, коли спрацює JavaScript.</p>
+                </article>
+            </div> 
+        </section>
+    </main>
+
+    <!-- Підвал -->
+    <footer>
+        <p>Виконав: Ілля Гончар, 2026. Навчальний проєкт.</p>
+    </footer>
+
+</body>
+</html>
